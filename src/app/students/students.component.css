@@ -1,0 +1,47 @@
+.container {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th, .table td {
+    border: solid 1px black;
+    padding: 10px;
+}
+
+.table th {
+    background-color: lightgrey;
+}
+
+.full-width-table {
+    width: 100%;
+}
+
+mat-card {
+    width: 100%;
+    margin-bottom: 20px; /* Optionnel : ajoute de l'espace entre les cartes */
+}
+
+mat-card-content {
+    padding: 0;
+}
+
+.mat-header-cell, .mat-cell {
+    padding: 10px; /* Optionnel : personnaliser le remplissage */
+    border: solid 1px black; /* Ajouter des bordures si nécessaire */
+}
+
+.mat-header-row, .mat-row {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.student-card {
+    display: inline-block;
+}

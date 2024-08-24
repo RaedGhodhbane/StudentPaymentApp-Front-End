@@ -1,0 +1,100 @@
+<div class="container">
+    <mat-card class="student-card">
+        <mat-card-header>
+            <mat-card-title>
+                Students
+            </mat-card-title>
+        </mat-card-header>
+        <mat-divider></mat-divider>
+            <mat-card-content>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                ID
+                            </th>
+                            <th>
+                                First Name
+                            </th>
+                            <th>
+                                Last Name
+                            </th>
+                            <th>
+                                Code
+                            </th>
+                            <th>
+                                Program ID
+                            </th>
+                            <th>
+                                Photo
+                            </th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of students">
+                            <td>{{student.id}}</td>
+                            <td>{{student.firstName}}</td>
+                            <td>{{student.lastName}}</td>
+                            <td>{{student.code}}</td>
+                            <td>{{student.programId}}</td>
+                            <td>{{student.photo}}</td>
+                            <td>
+                                <button (click)="studentPayments(student)" mat-raised-button color="primary"> Payments </button>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </mat-card-content>
+    </mat-card>
+    <mat-card class="student-card">
+        <mat-card-header>
+            <mat-card-title>
+                Students
+            </mat-card-title>
+        </mat-card-header>
+            <mat-divider></mat-divider>
+            <mat-card-content>
+                <table matSort mat-table [dataSource]="studentsDataSource" class="full-width-table">
+
+                    <ng-container matColumnDef="id">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                        <td mat-cell *matCellDef="let student"> {{student.id}} </td>
+                      </ng-container>
+            
+                      <ng-container matColumnDef="firstName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+                        <td mat-cell *matCellDef="let student"> {{student.firstName}} </td>
+                      </ng-container>
+ 
+                      <ng-container matColumnDef="lastName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+                        <td mat-cell *matCellDef="let student"> {{student.lastName}} </td>
+                      </ng-container>
+                      <ng-container matColumnDef="code">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Code </th>
+                        <td mat-cell *matCellDef="let student"> {{student.code}} </td>
+                      </ng-container>
+                      <ng-container matColumnDef="programId">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Program Id </th>
+                        <td mat-cell *matCellDef="let student"> {{student.programId}} </td>
+                      </ng-container>
+                      <ng-container matColumnDef="photo">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Photo </th>
+                        <td mat-cell *matCellDef="let student"> {{student.photo}} </td>
+                      </ng-container>
+
+                      <ng-container matColumnDef="payments">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Payments </th>
+                        <td mat-cell *matCellDef="let student"> 
+                        <button (click)="studentPayments(student)" mat-raised-button color="primary">Payments</button>
+                        </td>
+                      </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </mat-card-content>
+    </mat-card>
+</div>
